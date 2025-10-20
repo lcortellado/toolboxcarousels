@@ -6,7 +6,6 @@ export const useCarousel = carousel => {
 
   const renderItem = useCallback(
     ({item}) => {
-      // Dynamic import to avoid circular dependencies
       const {CarouselItem} = require('../components/CarouselItem');
       return <CarouselItem item={item} type={carousel.type} />;
     },
