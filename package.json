@@ -10,8 +10,13 @@
     "test": "jest"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^2.0.1",
+    "base-64": "^1.0.0",
     "react": "19.0.0",
-    "react-native": "0.79.6"
+    "react-native": "0.79.6",
+    "react-native-fast-image": "^8.6.3",
+    "react-native-video": "^6.4.5",
+    "react-redux": "^9.1.0"
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",

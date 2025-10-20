@@ -1,97 +1,235 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# Toolbox Carousels - React Native App
 
-# Getting Started
+Una aplicación React Native moderna con tema dark que consume una API REST para mostrar carruseles dinámicos con funcionalidad de reproducción de video.
 
-> **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
+## 🎨 Características del Diseño
 
-## Step 1: Start Metro
+- **Tema Dark Moderno**: Diseño elegante con colores oscuros y acentos en indigo
+- **Animaciones Suaves**: Transiciones y efectos visuales modernos
+- **Responsive Design**: Adaptable a diferentes tamaños de pantalla
+- **UI/UX Optimizada**: Interfaz intuitiva y fácil de usar
 
-First, you will need to run **Metro**, the JavaScript build tool for React Native.
+## 🚀 Características Técnicas
 
-To start the Metro dev server, run the following command from the root of your React Native project:
+- **Autenticación automática**: Login automático con renovación de token
+- **Carruseles dinámicos**: Soporte para tipos "thumb" y "poster"
+- **Reproductor de video**: Reproducción de videos con controles nativos
+- **Lazy loading**: Carga optimizada de imágenes
+- **Redux**: Manejo de estado global con Redux Toolkit
+- **Tests unitarios**: Tests con Jest y React Native Testing Library
+- **Pull-to-refresh**: Actualización manual de contenido
+- **Manejo de errores**: Gestión robusta de errores de red
 
-```sh
-# Using npm
+## 📋 Requisitos Previos
+
+- Node.js >= 18
+- React Native CLI
+- Android Studio (para Android)
+- Xcode (para iOS - solo macOS)
+- Java Development Kit (JDK) 11 o superior
+
+## 🛠️ Instalación
+
+### 1. Clonar el repositorio
+```bash
+git clone <repository-url>
+cd ToolboxCarousels
+```
+
+### 2. Instalar dependencias
+```bash
+npm install
+# o
+yarn install
+```
+
+### 3. Instalación específica por plataforma
+
+#### Para iOS (solo macOS):
+```bash
+cd ios && pod install && cd ..
+```
+
+#### Para Android:
+Asegúrate de tener Android Studio instalado y configurado correctamente.
+
+## 🏃‍♂️ Ejecución
+
+### Desarrollo
+```bash
+# Iniciar Metro bundler
 npm start
-
-# OR using Yarn
+# o
 yarn start
-```
 
-## Step 2: Build and run your app
-
-With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
-
-### Android
-
-```sh
-# Using npm
+# En otra terminal, ejecutar en Android
 npm run android
-
-# OR using Yarn
+# o
 yarn android
-```
 
-### iOS
-
-For iOS, remember to install CocoaPods dependencies (this only needs to be run on first clone or after updating native deps).
-
-The first time you create a new project, run the Ruby bundler to install CocoaPods itself:
-
-```sh
-bundle install
-```
-
-Then, and every time you update your native dependencies, run:
-
-```sh
-bundle exec pod install
-```
-
-For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
-
-```sh
-# Using npm
+# En otra terminal, ejecutar en iOS (solo macOS)
 npm run ios
-
-# OR using Yarn
+# o
 yarn ios
 ```
 
-If everything is set up correctly, you should see your new app running in the Android Emulator, iOS Simulator, or your connected device.
+### Tests
+```bash
+npm test
+# o
+yarn test
+```
 
-This is one way to run your app — you can also build it directly from Android Studio or Xcode.
+### Linting
+```bash
+npm run lint
+# o
+yarn lint
+```
 
-## Step 3: Modify your app
+## 📱 Funcionalidades
 
-Now that you have successfully run the app, let's make changes!
+### API Integration
+- **Login automático**: Se autentica automáticamente con el API
+- **Renovación de token**: Maneja la expiración de tokens automáticamente
+- **Endpoints**:
+  - `POST /v1/mobile/auth` - Autenticación
+  - `GET /v1/mobile/data` - Datos de carruseles
 
-Open `App.tsx` in your text editor of choice and make some changes. When you save, your app will automatically update and reflect these changes — this is powered by [Fast Refresh](https://reactnative.dev/docs/fast-refresh).
+### Carruseles
+- **Tipos soportados**:
+  - `thumb`: Carrusel horizontal con imágenes pequeñas
+  - `poster`: Carrusel horizontal con imágenes grandes
+- **Contenido dinámico**: Se adapta automáticamente a cualquier cantidad de carruseles e ítems
+- **Lazy loading**: Las imágenes se cargan de forma optimizada
 
-When you want to forcefully reload, for example to reset the state of your app, you can perform a full reload:
+### Reproductor de Video
+- **Reproducción nativa**: Usa react-native-video para reproducción optimizada
+- **Controles integrados**: Play, pause, seek, fullscreen
+- **Manejo de errores**: Mensajes informativos cuando no hay video disponible
+- **Modal fullscreen**: Experiencia de visualización inmersiva
 
-- **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Dev Menu**, accessed via <kbd>Ctrl</kbd> + <kbd>M</kbd> (Windows/Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (macOS).
-- **iOS**: Press <kbd>R</kbd> in iOS Simulator.
+### Estado Global (Redux)
+- **Redux Toolkit**: Implementación moderna de Redux
+- **Async Thunks**: Manejo de operaciones asíncronas
+- **Selectores**: Acceso optimizado al estado
+- **Acciones**:
+  - `login()` - Autenticación
+  - `fetchCarouselData()` - Obtener datos
+  - `showVideoPlayer()` - Mostrar reproductor
+  - `hideVideoPlayer()` - Ocultar reproductor
 
-## Congratulations! :tada:
+## 🧪 Testing
 
-You've successfully run and modified your React Native App. :partying_face:
+### Tests Unitarios
+Los tests cubren:
+- Componente `Carousel`
+- Servicio `ApiService`
+- Redux slice y acciones
 
-### Now what?
+### Ejecutar Tests
+```bash
+# Todos los tests
+npm test
 
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [docs](https://reactnative.dev/docs/getting-started).
+# Tests en modo watch
+npm test -- --watch
 
-# Troubleshooting
+# Tests con coverage
+npm test -- --coverage
+```
 
-If you're having issues getting the above steps to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
+## 🏗️ Arquitectura
 
-# Learn More
+### Estructura de Carpetas
+```
+src/
+├── components/
+│   ├── Carousel.js          # Componente principal del carrusel
+│   ├── CarouselItem.js      # Item individual del carrusel
+│   └── VideoPlayer.js       # Reproductor de video
+├── services/
+│   └── api.js               # Servicio de API
+└── store/
+    ├── index.js             # Configuración del store
+    └── carouselSlice.js     # Redux slice
+```
 
-To learn more about React Native, take a look at the following resources:
+### Principios SOLID Aplicados
+- **Single Responsibility**: Cada componente tiene una responsabilidad específica
+- **Open/Closed**: Componentes extensibles sin modificación
+- **Liskov Substitution**: Interfaces consistentes entre componentes
+- **Interface Segregation**: APIs específicas y enfocadas
+- **Dependency Inversion**: Dependencias inyectadas via Redux
 
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+### Patrones de Diseño
+- **Singleton**: ApiService como instancia única
+- **Observer**: Redux para comunicación entre componentes
+- **Factory**: Creación dinámica de componentes de carrusel
+- **Strategy**: Diferentes tipos de carrusel (thumb/poster)
+
+## 🔧 Configuración
+
+### Variables de Entorno
+La aplicación usa URLs hardcodeadas para el API. Para cambiar el endpoint:
+
+```javascript
+// src/services/api.js
+const API_BASE_URL = 'https://your-api-url.com';
+```
+
+### Personalización de Estilos
+Los estilos están definidos en cada componente usando `StyleSheet.create()`. Puedes modificar:
+- Colores en `styles`
+- Dimensiones de carruseles
+- Espaciado y márgenes
+
+## 🐛 Troubleshooting
+
+### Problemas Comunes
+
+#### Android
+```bash
+# Limpiar cache
+cd android && ./gradlew clean && cd ..
+
+# Reinstalar dependencias
+rm -rf node_modules && npm install
+```
+
+#### iOS
+```bash
+# Limpiar pods
+cd ios && rm -rf Pods && pod install && cd ..
+
+# Limpiar build
+cd ios && xcodebuild clean && cd ..
+```
+
+#### Metro Bundler
+```bash
+# Limpiar cache de Metro
+npx react-native start --reset-cache
+```
+
+### Errores de Dependencias
+Si encuentras errores con `react-native-video` o `react-native-fast-image`:
+
+1. **Android**: Asegúrate de tener las dependencias nativas instaladas
+2. **iOS**: Ejecuta `pod install` después de instalar nuevas dependencias
+
+## 📄 Licencia
+
+Este proyecto está bajo la licencia MIT.
+
+## 🤝 Contribución
+
+1. Fork el proyecto
+2. Crea una rama para tu feature (`git checkout -b feature/AmazingFeature`)
+3. Commit tus cambios (`git commit -m 'Add some AmazingFeature'`)
+4. Push a la rama (`git push origin feature/AmazingFeature`)
+5. Abre un Pull Request
+
+## 📞 Soporte
+
+Para soporte técnico o preguntas sobre la implementación, contacta al equipo de desarrollo.
