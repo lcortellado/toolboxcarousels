@@ -27,8 +27,3 @@ jest.mock('react-native-fast-image', () => {
 jest.mock('base-64', () => ({
   decode: jest.fn(() => '{}'),
 }));
-
-// Mock Alert
-jest.mock('react-native/Libraries/Alert/Alert', () => ({
-  alert: jest.fn(),
-}));

@@ -28,7 +28,6 @@ export const useVideoPlayer = () => {
 
   const handleVideoError = useCallback(
     error => {
-      console.error('Video error:', error);
       setIsLoading(false);
       setHasError(true);
 

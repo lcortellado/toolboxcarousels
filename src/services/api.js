@@ -33,7 +33,6 @@ class ApiService {
 
       // Parse JWT expiration date
       const tokenPayload = JSON.parse(atob(data.token.split('.')[1]));
-      console.log(tokenPayload, 'token');
       this.tokenExpiry = new Date(tokenPayload.expireDate);
 
       return data;
