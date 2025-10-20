@@ -57,11 +57,20 @@ const CarouselItem = ({item, type}) => {
             style={styles.image}
             source={{
               uri: item.imageUrl,
-              priority: FastImage.priority.normal,
+              priority:
+                (FastImage &&
+                  FastImage.priority &&
+                  FastImage.priority.normal) ||
+                'normal',
             }}
             onLoad={handleImageLoad}
             onError={handleImageError}
-            resizeMode={FastImage.resizeMode.cover}
+            resizeMode={
+              (FastImage &&
+                FastImage.resizeMode &&
+                FastImage.resizeMode.cover) ||
+              'cover'
+            }
           />
         ) : (
           <View style={styles.errorContainer}>

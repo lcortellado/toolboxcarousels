@@ -42,7 +42,9 @@ export const useHomeScreen = () => {
   }, [handleLoadData]);
 
   useEffect(() => {
-    if (!error) return;
+    if (!error) {
+      return;
+    }
     const buttons = loading
       ? [{text: 'OK', onPress: () => dispatch(clearError())}]
       : [
@@ -74,17 +76,6 @@ export const useHomeScreen = () => {
   const validCarousels = filterValidCarousels(carousels || []);
   const hasData = !!(validCarousels && validCarousels.length);
   const isLoading = loading;
-
-  // Debug logs
-  useEffect(() => {
-    console.log('HomeScreen Debug:', {
-      loading,
-      hasData,
-      validCarouselsLength: validCarousels?.length,
-      carouselsLength: carousels?.length,
-      error,
-    });
-  }, [loading, hasData, validCarousels, carousels, error]);
 
   return {
     // Data
